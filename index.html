@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="Up">User Data</div>
+        <div class="lower">
+            <form id="myform">
+                Name: <input type="name" name="" id="name" placeholder="enter your name">
+                Id: <input type="id" id="id" placeholder="enter your id">
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+    <table id="tabledata" border="1" style="margin-top: 20px; width: 100%; text-align: left;">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const form = document.getElementById("myform");
+        const table = document.getElementById("tabledata").getElementsByTagName("tbody")[0];
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const id = document.getElementById("id").value;
+
+            const newRow = table.insertRow();
+            const namecell = newRow.insertCell(0);
+            const idcell = newRow.insertCell(1);
+
+            namecell.textContent = name;
+            idcell.textContent = id;
+
+            form.reset();
+        });
+
+    </script>
+</body>
+
+</html>
